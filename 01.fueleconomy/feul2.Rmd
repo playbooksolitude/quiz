@@ -1,5 +1,5 @@
 ---
-title: "모두의 데이터 스터디 퀴즈"
+title: "모두의 데이터 스터디"
 subtitle : ""
 output: html_document
 date: "2024-08-09"
@@ -23,6 +23,9 @@ This is an R Markdown document. Markdown is a simple formatting syntax for autho
 - vehicles 데이터셋은 **미국 환경 보호국(EPA)**에서 수집한 실제 자동차들의 정보입니다.
 - http://www.fueleconomy.gov/feg/download.shtml
 - 데이터셋은 아래 코드를 실행해 CRAN에서 다운로드 받을 수 있습니다.
+<br>
+<br>
+
 ```{r, eval=FALSE}
 
 install.packages('fueleconomy') #데이터셋 다운로드
@@ -40,43 +43,59 @@ vehicles                        #데이터셋 실행
 ### vehicles 데이터셋이 좋은 점
 <div style="border: .5px solid black; padding: 10px; background-color: #fafafa;">
 
-#### 분석에 집중하기 좋은 데이터
-- 미국 환경 보호국에서 제공한 실제 데이터의 일부이므로 신뢰할 수 있습니다. 
-- 'Telsa'나 'BMW' 처럼 우리에게 친숙한 제조사도 보입니다. 익숙한 데이터셋을 활용하면 **분석에 집중** 할 수 있습니다.<br>
+#### 데이터 탐색 시간이 절약됩니다
+- 실제 자동차들의 정보이므로 데이터 구조, 변수의 의미 등을 쉽게 이해할 수 있습니다.
+- 제조사(예: Tesla), 연료의 종류(Electricity)가 의미하는 바를 알고 있으므로 분석에 필요한 <u>**데이터 탐색 시간**</u>이 절약됩니다. <br><br>
 
-#### 실습하기 좋은 데이터 셋
-- 현실에 흔한 결측치나 이상치같은 문제들이 포함되어 있어 현업에서 사용하는 함수들을 실습할 수 있습니다. 
-- 다양한 변수(예: 제조사, 모델, 연비 등)가 수치형 데이터와 범주형 데이터로 제공돼 데이터 분석에 필요한 것들을 잘 배웠는지 확인하는데 적합합니다. 
-- filter, mutate, summarize, group_by 등 <br>
 
-#### 높은 품질의 통계 데이터
-- 우리에게 익숙한 'mpg' 데이터셋은 234행이지만'vehicles' 데이터셋은 33,442 행으로 약 142배 큽니다. 
-- 데이터분석 프로그램 'R'의 효용성이 극대화되는 순간은 'excel'로 처리할 수없는 대용량 데이터를 분석할 때입니다. 
-- 컴퓨터의 성능을 최대로 활용하며 데이터의 분포나 면분할 시각화를 수행할 때 'R'의 효능감을 경험할 수 있습니다. 
+#### 검증하기 쉽습니다
+- 우리에게 익숙한 데이터이기 때문에 분석 결과가 합리적인지, 혹은 예상과 다른지 쉽게 판단할 수 있습니다. 
+- 예를 들어 'Tesla'가 생산한 자동차의 연료는 'Electricity'만 조회됩니다. 
+- 'Tesla'가 전기차 회사라는 것을 알고 있다면 자신의 분석이 잘 이루어졌다는 것을 알고 자신있게 다음 단계로 넘어갈 수 있습니다. 
+- 이는 분석을 처음 배우는 사람일수록, <u>**자신의 분석이 제대로 이루어졌는지 검증**</u>하는데 도움됩니다. <br><br>
+
+
+#### 핵심만 분석
+- 실제 자동차들의 정보인만큼 현실에 흔한 결측치나 이상치같은 문제들이 포함되어 있어 현업에서 사용하는 함수들을 필수적으로 실습하게 됩니다. 
+- 다양한 변수(예: 제조사, 모델, 연비 등)가 수치형 데이터와 범주형 데이터로 제공돼 <u>**데이터 분석에 필요한 것들을 잘 알고있는지 확인**</u>할수 있습니다. 
+  - filter, mutate, summarize, group_by 등 <br><br>
+
+
+#### 'excel'과 'R'의 차이를 체감할 수 있습니다
+- 우리가 'R'을 공부하는 이유는 'excel'로는 분석하기 어려운 크고 복잡한 데이터를 분석하기 위해서일 것입니다. 
+- 자동차 관련 데이터 셋으로 유명한 'mpg' 는 234행이지만 'vehicles' 데이터셋은 33,442 행으로 약 142배 큽니다. 
+- 'excel'에서는 어려운 데이터 셋을 'R'을 사용해 분석할 수 있을 때 'excel'과 'R'의 차이점, 강점을 명확히 이해할 수 있습니다. <br><br>
 
 #### 통계 학습에 적합
-- IQR, Outlier 같은 통계 개념은 그 자체로 쉽게 이해할 수 있지만 실제 사용하는 경우는 많지 않습니다. 필요성은 모르고 개념만 단편적으로 배웠기 때문일수 있습니다. 
-- 엔진크기와 연비의 상관관계같은 데이터들을 다루면서 IQR, Outlier 등의 통계 개념이 왜 필요하고 무엇을 가늠하기 위함인지 체감하며 학습할 수 있습니다. <br>
+- IQR, Outlier 같은 기초 통계 개념은 중요하고 어렵지 않지만, 현업에서 잘 사용하지 않습니다.
+- 용법과 사례를 모른채 개념만 기계적으로 배웠다면 더욱 그럴 것입니다.
+- 충분히 큰 데이터셋을 활용해 분석을 수행하면 핵심적인 통계 개념뿐만 아니라 용법도 학습할 수 있습니다.<br><br>
 
-#### 시각화를 통한 탐색적 데이터 분석
-- 데이터 시각화의 효용성을 체감할 수 있습니다.
-- 33,442개의 데이터들을 산점도로 그렸을 때 한눈에 데이터의 흩어진 정도를 보면서 왜 시각화를 해야 하는지 체감할 수 있습니다.
-- 예를 들어, 제조사별 자동차수, 변속기와 구동방식에 따른 연비 차이, 엔진 크기와 연비의 상관 관계 등을 시각화함으로써, 표로 정리할 때 알수 없는 인사이트를 도출할수 있습니다.<br>
+
+#### 시각화의 효용성을 체감할 수 있습니다
+- 제조사별 자동차수, 변속기와 구동방식에 따른 연비 차이, 엔진 크기와 연비의 상관 관계 등을 시각화함으로써, 표로 정리할 때 알수 없는 인사이트를 확인하고 공유할수 있습니다.<br><br>
 
 </div>
 <br><br>
 
-## Quiz (23 문제)
-**데이터 구조 보기**
+---
+
+## Quiz (23 문제) 
+<br>
+**데이터 구조**
 ```{r eval=FALSE}
 
 library(fueleconomy)
 library(tidyverse)
+
 vehicles |> head()
+
 vehicles |> glimpse()
+
 vehicles |>         
   mutate_at(vars(make, model, class, trans, drive, fuel), factor) |> 
   str() 
+
 vehicles |> 
   is.na() |> 
   colSums() |> 
@@ -246,11 +265,11 @@ vehicles |>
 > - is.na(), colSums(), as_tibble()
 
 ```{r, echo=FALSE}
+
 vehicles |> 
   is.na() |> 
   colSums() |> 
   as_tibble(rownames = 'NA')
-
 
 ```
 <br>
@@ -354,7 +373,7 @@ vehicles %>%
 
 ```
 
-### 17. x축 레이블 회전
+### 17. theme(), drop_na()
 > 2014년 기준 제조사별 평균 배기량(displ)을 막대 그래프로 시각화하시오<br>
 > na 제거 <br>
 > - group_by(), reframe(), geom_bar()를 사용하시오<br>
@@ -369,7 +388,7 @@ vehicles |>
   reframe(avg_displ = mean(displ, na.rm = TRUE)) |>
   ggplot(aes(x = reorder(make, -avg_displ), y = avg_displ)) +
   geom_bar(stat = "identity") +
-  ggtitle("Average Displacement by Manufacturer") +
+  ggtitle("Average Displ by make") +
   xlab("make") +
   ylab("mean displ") +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
@@ -419,9 +438,10 @@ theme(axis.text.y = element_text(size = 12),
 
 
 
-### 20. boxplot()
+### 20. boxplot(), geom_jitter()
 > 연료 유형별 고속도로 연비 분포를 상자 그림으로 시각화하시오<br>
-> geom_jitter(width = .1, alpha = .1)을 덧붙이세요<br>
+> outlier는 'red'로 표현하세요 (outlier.color = 'red')
+> geom_jitter(width = .1, alpha = .1)를 덧붙이세요<br>
 > - x = fuel, y = hwy, ggplot(), geom_boxplot()
 
 ```{r, echo=FALSE}
@@ -429,7 +449,7 @@ theme(axis.text.y = element_text(size = 12),
 vehicles |>
   ggplot(aes(x = fuel, y = hwy)) +
   geom_jitter(width = .1, alpha = .1) +
-  geom_boxplot() +
+  geom_boxplot(outlier.color = 'red') +
   ggtitle("Highway MPG Distribution by Fuel Type") +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 
@@ -437,9 +457,9 @@ vehicles |>
 <br>
 
 ### 21. mutate(), slice()
-> (A)고속도로 연비보다 도시연비가 좋은 차 5대를 출력하시오<br>
+> (A) 고속도로 연비보다 도시연비가 좋은 차 5대를 출력하시오<br>
 > (B) 도시연비보다 고속도로 연비가 좋은 차 5대를 출력하시오<br>
-> A와 B를 한 화면에 출력하시오<br>
+> (A)와 (B)를 한 화면에 출력하시오<br>
 > - mutate(), arrange(), slice()
 
 ```{r, echo=FALSE}
@@ -454,7 +474,7 @@ vehicles |>
 
 ### 22. geom_histogram()
 > 고속도로 연비의 분포를 히스토그램으로 그리시오<br>
-> - geom_histogram(), binwidth = 3
+> - geom_histogram(binwidth = 3)
 
 ```{r, echo=FALSE}
 
@@ -465,7 +485,7 @@ vehicles |>
 ```
 <br>
 
-### 23. 선형 회귀
+### 23. geom_smooth()
 > 도시 연비와 고속도로 연비를 선형회귀로 시각화 하시오.<br>
 > - geom_smooth(), geom_point()
 
