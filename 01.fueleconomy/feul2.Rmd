@@ -32,7 +32,10 @@ install.packages('fueleconomy') #데이터셋 다운로드
 library(fueleconomy)            #데이터셋 라이브러리 로드
 
 ```
+<br>
 
+#### vehicles 실행 화면 
+- '33,442행 * 12열'로 구성
 ```{r}
 
 vehicles                        #데이터셋 실행
